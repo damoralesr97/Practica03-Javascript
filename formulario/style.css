@@ -1,0 +1,55 @@
+*{
+    font-family: sans-serif;
+}
+
+#formulario01{
+    width: 80%;
+    margin: auto;
+    border: 5px double blue;
+    background: royalblue;
+}
+
+#formulario01 h1{
+    color: white;
+    text-align: center
+}
+
+#formulario01 input[type="text"]{
+    border: 5px solid black;
+    display: block;
+    width: 60%;
+    margin: auto;
+    padding: 20px 10px;
+    margin-top: 15px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#aceptar{
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background: white;
+    width: 20%;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+#aceptar:hover{
+    background: skyblue;
+}
+
+body{
+    background: black;
+}
+
+.error{
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-top: 15px;
+    color: black;
+    font-weight: bold;
+}

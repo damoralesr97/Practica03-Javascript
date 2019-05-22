@@ -4,17 +4,25 @@
         <meta charset="UTF-8">
         <title>Formulario</title>
         <script type="text/javascript" src="validaciones.js"></script>
+        <link type="text/css" href="style.css" rel="stylesheet">
     </head>
     <body>
-        <form id="formulario01" method="POST" onsubmit="validar()">
+        <form id="formulario01" method="POST" action="bienvenido.php" onsubmit="return validar()">
             <h1>Formulario</h1>
             <input type="text" id="cedula" name="cedula" value="" placeholder="Ingresa tu numero de cedula..." onkeyup="validarCedula()">
+            <span id="mensajeCedula" class="error"></span>
             <input type="text" id="nombres" name="nombres" value="" placeholder="Ingresa tus nombres..." onkeyup="validarNombres()">
+            <span id="mensajeNombres" class="error"></span>
             <input type="text" id="apellidos" name="apellidos" value="" placeholder="Ingresa tus apellidos..." onkeyup="validarApellidos()">
+            <span id="mensajeApellidos" class="error"></span>
             <input type="text" id="direccion" name="direccion" value="" placeholder="Ingresa tu direccion...">
+            <span id="mensajeDireccion" class="error"></span>
             <input type="text" id="telefono" name="telefono" value="" placeholder="Ingresa tu numero de telefono..." onkeyup="validarTelefono()">
+            <span id="mensajeTelefono" class="error"></span>
             <input type="text" id="fec_nac" name="fec_nac" value="" placeholder="Ingresa tu fecha de nacimiento... dd/mm/yyyy">
+            <span id="mensajeFec_nac" class="error"></span>
             <input type="text" id="correo" name="correo" value="" placeholder="Ingresa tu correo electronico...">
+            <span id="mensajeCorreo" class="error"></span>
             <input type="submit" id="aceptar" name="aceptar" value="Aceptar">
         </form>
     </body>

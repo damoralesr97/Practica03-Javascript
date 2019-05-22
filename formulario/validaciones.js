@@ -97,23 +97,55 @@ function validar(){
     var fec_nac = document.getElementById("fec_nac").value.trim()
     var correo = document.getElementById("correo").value.trim()
 
-    if(cedula==""){
-        alert("complete todos los campos")
-    }else if(nombres==""){
-        alert("complete todos los campos")
-    }else if(apellidos==""){
-        alert("complete todos los campos")
-    }else if(direccion==""){
-        alert("complete todos los campos")
-    }else if(telefono==""){
-        alert("complete todos los campos")
-    }else if(fec_nac==""){
-        alert("complete todos los campos")
-    }else if(correo==""){
-        alert("complete todos los campos")
-    }else{
-        comprobar()
-    }
+        var bandera = false;
+        for(var i = 0; i < document.forms[0].length; i++){
+            var elemento = document.forms[0].elements[i]
+            if(elemento.value.trim() == ''){
+                bandera = true
+                if(elemento.id == 'cedula'){
+                    elemento.style.border = '5px red solid'
+                    document.getElementById('mensajeCedula').innerHTML = "La cedula es obligatoria."
+                }
+                if(elemento.id == 'nombres'){
+                    elemento.style.border = '5px red solid'
+                    document.getElementById('mensajeNombres').innerHTML = "Los nombres son obligatorios."
+                }
+                if(elemento.id == 'apellidos'){
+                    elemento.style.border = '5px red solid'
+                    document.getElementById('mensajeApellidos').innerHTML = "Los apellidos son obligatorios."
+                }
+                if(elemento.id == 'direccion'){
+                    elemento.style.border = '5px red solid'
+                    document.getElementById('mensajeDireccion').innerHTML = "La direccion es obligatoria."
+                }
+                if(elemento.id == 'telefono'){
+                    elemento.style.border = '5px red solid'
+                    document.getElementById('mensajeTelefono').innerHTML = "El telefono es obligatorio."
+                }
+                if(elemento.id == 'fec_nac'){
+                    elemento.style.border = '5px red solid'
+                    document.getElementById('mensajeFec_nac').innerHTML = "La fecha de nacimiento es obligatoria."
+                }
+                if(elemento.id == 'correo'){
+                    elemento.style.border = '5px red solid'
+                    document.getElementById('mensajeCorreo').innerHTML = "El correo electronico es obligatorio."
+                }
+                
+            }
+        }
+        if(bandera){
+            alert('Llenar todos los campos')
+            return false
+        } else {
+            if(comprobar()==true){
+                return true
+            }else{
+                return false
+            }
+        }
+
+
+    
     
     function comprobar(){
         for(var j=0; j<=nombres.length-1;j++){
@@ -122,7 +154,8 @@ function validar(){
             }
         }
         if(Number(cantidad)<1){
-            alert("Ingrese dos nombres")
+            document.getElementById('mensajeNombres').innerHTML = "Ingrese dos nombres."
+            return false
         }
         cantidad=0;
         for(var j=0; j<=apellidos.length-1;j++){
@@ -131,7 +164,8 @@ function validar(){
             }
         }
         if(Number(cantidad)<1){
-            alert("Ingrese dos apellidos")
+            document.getElementById('mensajeApellidos').innerHTML = "Ingrese dos apellidos."
+            return false
         }
         cantidad=0;
         for(var j=0; j<=fec_nac.length-1;j++){
@@ -140,15 +174,19 @@ function validar(){
             }
         }
         if(Number(cantidad)!=2){
-            alert("Ingrese su fecha de nacimiento correctamente")
+            document.getElementById('mensajeFec_nac').innerHTML = "Ingrese su fecha de nacimiento correctamente dd/mm/yyyy."
+            return false
         }else{
             var arrayFecha = fec_nac.split("/")
             if(Number(arrayFecha[0]) < 0 || Number(arrayFecha[0]) > 31){
-                alert("Ingrese su fecha de nacimiento correctamente")
+                document.getElementById('mensajeFec_nac').innerHTML = "Ingrese su fecha de nacimiento correctamente dd/mm/yyyy."
+                return false
             }else if(Number(arrayFecha[1]) < 1 || Number(arrayFecha[1]) > 12){
-                alert("Ingrese su fecha de nacimiento correctamente ")
+                document.getElementById('mensajeFec_nac').innerHTML = "Ingrese su fecha de nacimiento correctamente dd/mm/yyyy."
+                return false
             }else if(Number(arrayFecha[2]) < 1 || Number(arrayFecha[2]) > 2019){
-                alert("Ingrese su fecha de nacimiento correctamente ")
+                document.getElementById('mensajeFec_nac').innerHTML = "Ingrese su fecha de nacimiento correctamente dd/mm/yyyy."
+                return false
             }
         }
         cantidad=0;
@@ -158,24 +196,28 @@ function validar(){
             }
         }
         if(Number(cantidad)!=1){
-            alert("Ingrese su correo electronico correctamente")
+            document.getElementById('mensajeCorreo').innerHTML = "Ingrese su correo electronico correctamente."
+            return false
         }else{
             var emailComp = correo.split("@")
             if(emailComp[0].length < 3){
-                alert("Ingrese su correo electronico correctamente")
+                document.getElementById('mensajeCorreo').innerHTML = "Ingrese su correo electronico correctamente."
+                return false
             }else{
                 for(var i = 0;i<emailComp[0].length;i++){
                     if((emailComp[0].toUpperCase().charCodeAt(i) < 65 || emailComp[0].toUpperCase().charCodeAt(i) > 90) && (emailComp[0].charCodeAt(i) < 48 || telefono.charCodeAt(i) > 57)){
-                        alert("Ingrese un correo valido")
+                        document.getElementById('mensajeCorreo').innerHTML = "Ingrese su correo electronico correctamente."
+                        return false
                     }else if(emailComp[1].toLowerCase().trim() != 'est.ups.edu.ec' && emailComp[1].toLowerCase().trim() !='ups.edu.ec'){
-                        alert("Ingrese un correo institucional")
+                        document.getElementById('mensajeCorreo').innerHTML = "Ingrese un correo electronico institucional."
+                        return false
                     }
                 }
 
             }
             
         }
-
+        return true
 
     }
 
