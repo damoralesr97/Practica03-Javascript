@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Formulario</title>
+        <script type="text/javascript" src="validaciones.js"></script>
+    </head>
+    <body>
+        <form id="formulario01" method="POST" onsubmit="validar()">
+            <h1>Formulario</h1>
+            <input type="text" id="cedula" name="cedula" value="" placeholder="Ingresa tu numero de cedula..." onkeyup="validarCedula()">
+            <input type="text" id="nombres" name="nombres" value="" placeholder="Ingresa tus nombres..." onkeyup="validarNombres()">
+            <input type="text" id="apellidos" name="apellidos" value="" placeholder="Ingresa tus apellidos..." onkeyup="validarApellidos()">
+            <input type="text" id="direccion" name="direccion" value="" placeholder="Ingresa tu direccion...">
+            <input type="text" id="telefono" name="telefono" value="" placeholder="Ingresa tu numero de telefono..." onkeyup="validarTelefono()">
+            <input type="text" id="fec_nac" name="fec_nac" value="" placeholder="Ingresa tu fecha de nacimiento... dd/mm/yyyy">
+            <input type="text" id="correo" name="correo" value="" placeholder="Ingresa tu correo electronico...">
+            <input type="submit" id="aceptar" name="aceptar" value="Aceptar">
+        </form>
+    </body>
+</html>
